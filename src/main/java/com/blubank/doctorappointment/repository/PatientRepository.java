@@ -6,12 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Long> {
-    @Query("select a from Patient a where a.patientName=:name and a.patientContact=:contact")
-    PatientDto findByNameAndContact(String name,String contact);
 
-    @Query("select a from Patient a where a.patientContact=:contact")
-    PatientDto findByContact(String contact);
+    Patient findByPatientNameAndPatientContact(String name, String contact);
+
+    Patient findByPatientContact(String contact);
 }
 

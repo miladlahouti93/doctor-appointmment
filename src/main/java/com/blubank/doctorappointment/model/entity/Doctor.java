@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long doctorId;
 
     @Column(nullable = false)
     private String doctorName;
@@ -24,5 +24,5 @@ public class Doctor {
     @Column(nullable = false)
     private String doctorContact;
 
-    private String email;
+    private String doctorEmail;
 }

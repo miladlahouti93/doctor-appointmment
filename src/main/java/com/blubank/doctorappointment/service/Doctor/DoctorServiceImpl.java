@@ -24,20 +24,16 @@ public class DoctorServiceImpl implements DoctorService{
        Doctor doctor = new Doctor();
        doctor.setDoctorName(doctorDto.getDoctorName());
        doctor.setDoctorContact(doctorDto.getDoctorContact());
-       doctor.setEmail(doctorDto.getEmail());
+       doctor.setDoctorEmail(doctorDto.getDoctorEmail());
        Doctor savedDoctor=doctorRepository.save(doctor);
        return doctorMapper.toDto(savedDoctor);
    }
 
     @Override
     public DoctorDto findById(Long id) {
-        Optional<Doctor> doctor =doctorRepository.findById(id);
-        DoctorDto doctorDto;
-        if(doctor.isPresent())
-            doctorDto= doctorMapper.toDto(doctor.get());
-        else
-            throw new NotFoundException("not find doctor this id");
-        return doctorDto;
+        return doctorMapper.toDto(doctorRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Not Found Doctor")));
+
     }
 
 }

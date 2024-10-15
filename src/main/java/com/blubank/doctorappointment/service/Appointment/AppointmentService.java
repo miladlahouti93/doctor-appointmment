@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AppointmentService {
-    List<AppointmentDto> addListDoctorAppointments(Long id, LocalDateTime startTime, LocalDateTime endTime);
+    List<AppointmentDto> addListDoctorAppointments(Long id,String startTime,String endTime);
     List<AppointmentDto> findDoctorAppointment(Long doctorId);
     AppointmentDto selectAppointment(Long id,String name,String Contact);
     List<AppointmentDto> findPatientIsNull();

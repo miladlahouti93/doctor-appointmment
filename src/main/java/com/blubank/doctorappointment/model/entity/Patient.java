@@ -17,13 +17,11 @@ public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long patientId;
 
-    @Column(nullable = false)
     private String patientName;
 
-    @Column(nullable = false)
     private String patientContact;
 
-    private String EmailAddress;
+    private String patientEmailAddress;
 }

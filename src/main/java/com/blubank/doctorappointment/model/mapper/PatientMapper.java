@@ -10,18 +10,7 @@ import org.mapstruct.Mappings;
 @Mapper(componentModel = "spring")
 public interface PatientMapper {
 
-   @Mappings({
-           @Mapping(source = "id", target = "id",ignore = true),
-           @Mapping(source = "patientName", target = "patientName"),
-           @Mapping(source = "patientContact", target = "patientContact")
-   })
    PatientDto toDto(Patient patient);
 
-   @Mappings({
-           @Mapping(source = "id", target = "id",ignore = true),
-           @Mapping(source = "patientName", target = "patientName"),
-           @Mapping(source = "patientContact", target = "patientContact")
-
-   })
    Patient toEntity(PatientDto patientDto);
 }

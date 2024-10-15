@@ -10,18 +10,11 @@ import org.mapstruct.Mappings;
 @Mapper(componentModel = "spring")
 public interface DoctorMapper {
 
-   @Mappings({
-           @Mapping(source = "id", target = "id",ignore = true),
-           @Mapping(source = "doctorName", target = "doctorName"),
-           @Mapping(source = "doctorContact", target = "doctorContact"),
-           @Mapping(source = "email", target = "email")
-   })
+
    DoctorDto toDto(Doctor doctor);
+
    @Mappings({
-           @Mapping(source = "id", target = "id",ignore = true),
-           @Mapping(source = "doctorName", target = "doctorName"),
-           @Mapping(source = "doctorContact", target = "doctorContact"),
-           @Mapping(source = "email", target = "email")
+           @Mapping(source = "doctorId", target = "doctorId", ignore = true)
    })
    Doctor toEntity(DoctorDto doctorDto);
 }

@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 public class PatientDto {
 
-    private Long id;
+    private Long patientId;
     private String patientName;
     private String patientContact;
-    private String EmailAddress;
+    private String patientEmailAddress;
 }

@@ -12,12 +12,13 @@ import java.util.List;
 @Repository
 public interface AppointmentRepository extends JpaRepository<Appointment,Long> {
 
-    @Query("select a from Appointment a where a.doctor.id=:doctorId")
-    List<AppointmentDto> findAppointmentDoctor(@Param("doctorId") Long doctorId);
+    @Query("select a from Appointment a where a.doctor.doctorId=:doctorId")
+    List<Appointment> findAppointmentDoctor(@Param("doctorId") Long doctorId);
 
     @Query("select a from Appointment a where a.patient is null ")
-    List<AppointmentDto> findAppontmentsNotSet();
+    List<Appointment> findAppontmentsNotSet();
 
-    @Query("select a from Appointment a where a.patient.id=:patientId")
-    List<AppointmentDto> findAppointmentPatient(@Param("patientId") Long patientId);
+    @Query("select a from Appointment a where a.patient.patientId=:patientId")
+    List<Appointment> findAppointmentPatient(@Param("patientId") Long patientId);
+
 }

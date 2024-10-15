@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.FetchType;
 import javax.persistence.*;
-import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Entity
@@ -26,7 +25,7 @@ public class Appointment {
 
     private LocalDateTime endDateAppointment;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
